@@ -1,0 +1,51 @@
+Eric Wnorowski
+Professor Smith
+CS-377 Parallel Programming
+5 December 2022
+
+Assignment 5 Producer/Consumer Problem In Ruby (Rinda):
+
+    This homework assignment again allowed me to familiarize myself with a new programming
+language. I have not previously worked with Ruby, but as I have found with other languages like
+C, Go, UPC, etc. it is not difficult after some research. My only previous knowledge of Ruby 
+comes from a very limited experience of seeing Rails. So I was not aware that it could be
+used within the context of parallel programming. On previous homework assignments we have solved
+similar problems like the dining philosophers to create shared concurrent variables. Now
+we are being asking to use tuple space to regulate the producer and consumer processes. Since
+this was a problem that we had discussed earlier in the semester and that we reviewed in class
+I felt familiar with my understanding of the problem. Unlike the last programming assignment,
+I was comfortable tackling the problem without much context. The slides from the powerpoint
+were very useful in setting up the basic format, then it just came to executing the use
+of the tuple space. I will break down both versions briefly before analyzing the assignment.
+    The first version we were asked to implement used binary semaphores to regulate the 
+access to the elements in the buffer. The important step in converting the pseudocode given
+in the lecture to working in Ruby was the use of ts.take() & ts.write(). These two functions acted
+like in() & out() functions for semaphores in other languages/applications. I initially
+struggled to understand exactly how these functions matched to the tuple space, so I had
+over-complicated my code. The solution can be found by simply regulating the amount of empty and full tuples in the tuple
+space. Understanding this concept lead to a quicker understanding of the second version (more 
+on that in a moment). After straigtening out my tuple space intialization, I just had to populate
+the buffer with data and make the correct take() & write() function calls. After some trial
+and error I found the final solution, and to keep it simple I just add one random number between
+0 and 100 to the buffer, and the producer consumes it. Not a particularly complex set-up but
+the data population is not as essential as the other parts, as that can always be manipulated 
+successfully
+    The second version came quicker because I understood the basic set-up and the buffer was
+the only thing undertaking much change. I initialized the new variables within the tuple space
+so that I could make adequate take() & write() calls. I needed until class today to truly 
+understand how the binding on the buffer worked. This was the one element that was missing from
+my initial version of the code. As Professor explained we need to populate the tuple space with the 
+same number semaphores as our n variable, so that there is a "bounded" limit to the size of the
+buffer. I have the code output both the consumer number and data, so one can see how it is bounded,
+and the n value can be manipulated. After class discussion today I was able to get my implementation
+of the second version to work.
+    I would be genuinely interested to see how other tackled this problem. For some reason I
+had not thought of it during any prior lab report, but it was the first thing that popped into 
+my head this time around. I think it could really be true for all of our previous labs as well.
+I am interested to see the niche differences between the programs and understand how others
+solve the same problem given to me. I am no sure if it is possible/feasible but just a thought...
+I did enjoy again getting to experiment with a new language and solve another parallel programming
+problem. The are serious brain teaser that have made me have to gain a true understanding of 
+the lanugage, program, problem, variables, processes, etc. Now time to work on the final!
+
+-- ps. Sorry for late submission almost forgot to submit after class today!
